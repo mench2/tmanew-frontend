@@ -1,0 +1,33 @@
+.App {
+  text-align: center;
+}
+body {
+color: azure;
+  text-align: center;
+  background-color: #000000;
+  background-size: cover;
+  background-position: center;
+  -webkit-user-select: none; 
+  -webkit-touch-callout: none; 
+  -moz-user-select: none; 
+  -ms-user-select: none; 
+  user-select: none;    
+} 
+header {
+   position: absolute;
+   bottom: 0;
+   width: 100%;
+   display: flex;
+   justify-content: space-around;
+   padding: 25px 0;
+   background-color: black;
+}
+.buttom{
+  padding: 20px 0;
+  color: rgb(88, 73, 73);
+  border: 1px solid rgba(114, 114, 114, 0.425);
+  border-radius: 30px;
+  text-decoration: none;
+  flex: 1;
+  text-align: center;
+}

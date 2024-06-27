@@ -1,0 +1,26 @@
+.floating-button {
+    position: fixed;
+    bottom: 100px;
+    right: 10px;
+    color: rgb(88, 73, 73);
+    border: 1px solid rgba(114, 114, 114, 0.425);
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.floating-button:hover {
+    background-color: #000000; /* Темно-синий при наведении */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.plus-icon {
+    font-size: 30px; /* Размер иконки "+" */
+}
