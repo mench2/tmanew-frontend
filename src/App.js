@@ -3,12 +3,13 @@ import { Routes, Route, Link } from 'react-router-dom';
 import { Home } from './Components/homepage';
 import { Ipage } from './Components/ipage';
 import { Friends } from './Components/friendspage';
-window.Telegram.WebApp.onEvent('backButtonClicked')
+window.Telegram.WebApp.onEvent('backButtonClicked');
 
 function App() {
   return(
     <>
     <header>
+      
       <Link className='buttom' to="/i">08.08</Link>
       <Link className='buttom' to="/">Home</Link>
       <Link className='buttom' to="/friends">Friends</Link>
