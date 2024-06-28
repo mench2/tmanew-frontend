@@ -8,9 +8,6 @@ const Friends = () => {
     }
     return (
         <>
-        <div>
-            <button onClick={onClose}>Press f</button>
-        </div>
         <FloatingButton onClick={onClose} />
         </>
     );
