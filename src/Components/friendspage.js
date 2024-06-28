@@ -1,26 +1,20 @@
 import FloatingButton from './FloatingButton';
-import React from 'react';
+import React, { useEffect } from 'react';
 import './friends.css'; 
+const tg = window.Telegram
 
 const Friends = () => {
-    const handleClick = () => {
-       alert('Adeita')
-    };
+
+    useEffect(()=> {
+            tg.ready;
+    }, [])
+    const onClose = () => {
+        tg.close()
+    }
     return (
-        <>
         <div>
-            <h1>invite Friends</h1>
+            <button onClick={onClose}>Press f</button>
         </div>
-        <div className='spisok'>
-            тут подтягивается список друганов
-            
-            <h3>Типо друг</h3>
-            <h3>Типо друг</h3>
-            <h3>Типо друг</h3>
-            <h3>Типо друг</h3>
-        </div>
-        <FloatingButton onClick={handleClick} />
-        </>
     );
 };
   
