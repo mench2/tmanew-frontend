@@ -1,13 +1,8 @@
-import FloatingButton from './FloatingButton';
-import React, { useEffect } from 'react';
 import './friends.css'; 
-const tg = window.Telegram
+const tg = window.Telegram.WebApp
 
 const Friends = () => {
 
-    useEffect(()=> {
-            tg.ready;
-    }, [])
     const onClose = () => {
         tg.close()
     }
@@ -17,6 +12,4 @@ const Friends = () => {
         </div>
     );
 };
-  
-  
-  export {Friends};
+export {Friends};
