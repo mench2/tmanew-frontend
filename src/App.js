@@ -3,7 +3,7 @@ import { Routes, Route, Link } from 'react-router-dom';
 import { Home } from './Components/homepage';
 import { Ipage } from './Components/ipage';
 import { Friends } from './Components/friendspage';
-window.Telegram.WebApp.onEvent('backButtonClicked', callback)
+window.Telegram.WebApp.onEvent('backButtonClicked')
 
 function App() {
   return(
