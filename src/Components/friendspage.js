@@ -3,7 +3,6 @@ import './friends.css';
 const tg = window.Telegram.WebApp;
 
 const Friends = () => {
-    const tg = window.Telegram.WebApp
 
     const onClose = () => {
         tg.close()
