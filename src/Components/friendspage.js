@@ -1,6 +1,6 @@
 import FloatingButton from './FloatingButton';
 import './friends.css'; 
-const tg = window.Telegram.WebApp;
+const tg = window.Telegram.WebApp
 
 const Friends = () => {
     const onClose = () => {

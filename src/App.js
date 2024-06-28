@@ -4,13 +4,11 @@ import { Home } from './Components/homepage';
 import { Ipage } from './Components/ipage';
 import { Friends } from './Components/friendspage';
 window.Telegram.WebApp.onEvent('backButtonClicked');
-import { BackButton } from '@vkruglikov/react-telegram-web-app';
 
 
 function App() {
   return(
     <>
-    <BackButton onClick={() => console.log('Hello, I am back button!')} />;
     <header>
       <Link className='buttom' to="/i">08.08</Link>
       <Link className='buttom' to="/">Home</Link>
