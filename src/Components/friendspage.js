@@ -12,7 +12,7 @@ const Friends = () => {
             <span className={'username'}>{user?.username}</span>
         </FloatingButton>
         </>
-        
+
     );
 };
 export {Friends};
