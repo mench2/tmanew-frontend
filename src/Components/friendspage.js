@@ -8,6 +8,7 @@ const Friends = () => {
 
     return (
         <>
+        <a>Ada</a>
         <FloatingButton onClick={onClose}>
             <span className={'username'}>{user?.username}</span>
         </FloatingButton>
