@@ -1,15 +1,16 @@
 import FloatingButton from './FloatingButton';
+import { useTelegram } from '../useTelegram';
 import './friends.css'; 
-const tg = window.Telegram.WebApp
 
 
 const Friends = () => {
-    const onClose = () => {
-        tg.close()
-    }
+    const {user, onClose} = useTelegram();
+
     return (
         <>
-        <FloatingButton onClick={onClose} />
+        <FloatingButton onClick={onClose}>
+            <span className={'username'}>{user?.username}</span>
+        </FloatingButton>
         </>
     );
 };

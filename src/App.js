@@ -7,13 +7,6 @@ import { Friends } from './Components/friendspage';
 
 
 function App() {
-  var BackButton = WebApp.BackButton;
-BackButton.show();
-BackButton.onClick(function() {
-    WebApp.showAlert("BackButton clicked");
-    BackButton.hide();
-});
-
   return(
     <>
     <header>
