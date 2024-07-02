@@ -8,7 +8,7 @@ const Friends = () => {
 
     return (
         <>
-        <h1>Hello <span className={'username'}>{user?.username}</span> invite friends</h1>
+        <h2>Hello <span className={'username'}>{user?.username}</span> 👋 <br />invite friends</h2>
         <FloatingButton onClick={onClose} />
         </>
 
