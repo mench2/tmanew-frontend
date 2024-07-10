@@ -31,3 +31,6 @@ header {
   flex: 1;
   text-align: center;
 }
+.header_bg_color {
+  color: #000000;
+}
