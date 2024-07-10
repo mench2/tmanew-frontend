@@ -5,10 +5,6 @@ import './friends.css';
 
 const Friends = () => {
     const {user, onClose} = useTelegram();
-    const close = isClosingConfirmationEnabled;
-    close = {
-      isClosingConfirmationEnable: true,
-    }
     const copyTextToClipboard = async (text) => {
         try {
           await navigator.clipboard.writeText(text);
