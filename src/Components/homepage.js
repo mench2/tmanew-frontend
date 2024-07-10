@@ -5,7 +5,7 @@ import RotatingBall from './RotatingBall';
 
 
 const Home = () => (
-  <div tgclose = {close}>
+  <div>
     <h1>Adeita</h1>
     <RotatingBall />
   </div>
