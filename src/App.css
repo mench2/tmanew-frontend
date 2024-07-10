@@ -1,10 +1,10 @@
 .App {
   text-align: center;
-  headerColor: #000000;
+  header_bg_color: #000000;
 }
 body {
 color: azure;
-headerColor: #000000;
+header_bg_color: #000000;
   text-align: center;
   background-color: #000000;
   background-size: cover;
@@ -16,6 +16,7 @@ headerColor: #000000;
   user-select: none;    
 } 
 header {
+  header_bg_color:#000000;
    position: absolute;
    bottom: 0;
    width: 100%;
@@ -32,7 +33,4 @@ header {
   text-decoration: none;
   flex: 1;
   text-align: center;
-}
-.header_bg_color {
-  color: #000000;
 }
