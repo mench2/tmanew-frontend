@@ -7,6 +7,7 @@ import { Friends } from './Components/friendspage';
 
 
 function App() {
+  const close = isClosingConfirmationEnabled;
   return(
     <>
     <header>
