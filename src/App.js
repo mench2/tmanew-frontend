@@ -9,7 +9,6 @@ import { Friends } from './Components/friendspage';
 function App() {
   const app = window.Telegram.WebApp;
 app.ready()
-app.isClosingConfirmationEnabled = false;
 app.isVerticalSwipesEnabled = false;
   return(
     <>
