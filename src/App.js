@@ -3,12 +3,13 @@ import { Routes, Route, Link } from 'react-router-dom';
 import { Home } from './Components/homepage';
 import { Ipage } from './Components/ipage';
 import { Friends } from './Components/friendspage';
-import { useTelegram } from '../useTelegram';
 
 
 
 function App() {
-  const {close} = useTelegram();
+  const app = window.Telegram.WebApp;
+app.ready()
+app.isClosingConfirmationEnabled = true;
   return(
     <>
     <header>
