@@ -10,6 +10,7 @@ function App() {
   const app = window.Telegram.WebApp;
 app.ready()
 app.isClosingConfirmationEnabled = true;
+app.isVerticalSwipesEnabled = true;
   return(
     <>
     <header>
