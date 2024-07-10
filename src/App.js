@@ -3,14 +3,12 @@ import { Routes, Route, Link } from 'react-router-dom';
 import { Home } from './Components/homepage';
 import { Ipage } from './Components/ipage';
 import { Friends } from './Components/friendspage';
+import { useTelegram } from '../useTelegram';
 
 
 
 function App() {
-  const tgclose = isVerticalSwipesEnabled;
-    tgclose = {
-      isVerticalSwipesEnabled: true,
-    }
+  const {close} = useTelegram();
   return(
     <>
     <header>
