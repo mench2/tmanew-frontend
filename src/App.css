@@ -1,8 +1,10 @@
 .App {
   text-align: center;
+  header_bg_color: #000000;
 }
 body {
 color: azure;
+header_bg_color: #000000;
   text-align: center;
   background-color: #000000;
   background-size: cover;
