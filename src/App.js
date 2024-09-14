@@ -15,9 +15,9 @@ app.isVerticalSwipesEnabled = false;
   return(
     <>
     <header>
-      <Link className='buttom' to="/i">08.08</Link>
-      <Link className='buttom' to="/">Home</Link>
-      <Link className='buttom' to="/friends">Friends</Link>
+      <Link className='buttom' onclick="return false" to="/i">08.08</Link>
+      <Link className='buttom' onclick="return false" to="/">Home</Link>
+      <Link className='buttom' onclick="return false" to="/friends">Friends</Link>
     </header>
     <Routes>
             <Route path="/" element={<Home />} />
