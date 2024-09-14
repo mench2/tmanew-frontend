@@ -2,7 +2,6 @@ import './Home.css';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import RotatingBall from './RotatingBall';
-import { useTelegram } from '../useTelegram';
 
 
 const Home = () => (
