@@ -11,6 +11,7 @@ function App() {
 app.ready()
 app.isClosingConfirmationEnabled = true;
 app.isVerticalSwipesEnabled = false;
+
   return(
     <>
     <header>
