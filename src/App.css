@@ -25,12 +25,15 @@ color: azure;
   user-select: none;
 }
 header {
-   position: absolute;
+  background-color: black;
+   position: fixed;
    bottom: 0%;
+   height:8%;
    width: 100%;
+   align-items: center;
+   justify-content: space-around;
    display: flex;
    justify-content: space-around;
-   padding: 7% 0;
  	-webkit-touch-callout: none;
 	-webkit-user-select: none;
 	-khtml-user-select: none;

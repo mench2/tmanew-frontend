@@ -8,15 +8,15 @@ const Friends = () => {
     const copyTextToClipboard = async (text) => {
         try {
           await navigator.clipboard.writeText(text);
-          console.log('Текст успешно скопирован в буфер обмена!');
+          console.log('Ты кто такой, я тебя не звал!');
         } catch (err) {
-          console.error('Ошибка:', err);
+          console.err('Ошибка:', err);
         }
       };
     
     return (
         <>
-        <h2>Hello <span className={'username'}>{user?.first_name}</span> 👋 <br />invite friends</h2>
+        <div className='hello'><h2>Hello <span className={'username'}>{user?.first_name}</span> 👋 <br />invite friends</h2></div>
         <FloatingButton onClick={() => {onClose(); copyTextToClipboard('https://t.me/AdeitaBot Присоединяйся ко мне!');}} />
         </>
 

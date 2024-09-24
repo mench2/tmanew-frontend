@@ -9,7 +9,9 @@ const Home = () => (
   <div>
     <h1>Adeita</h1>
     <RotatingBall />
+
   </div>
+  
 </>
 );
 
