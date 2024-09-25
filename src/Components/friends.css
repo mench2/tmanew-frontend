@@ -1,14 +1,5 @@
 .spisok{
-    color:aqua;
-    padding: 17vh 0;
-    width: 70%;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    text-decoration: none;
-    flex: 1;
-    text-transform: capitalize;
-    text-align: center;
+    padding: 100% 0;
 }
 .hello{
     position: fixed;
