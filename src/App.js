@@ -1,6 +1,6 @@
 import './App.css';
-import React from 'react';
 import { Routes, Route, Link, useNavigate } from 'react-router-dom';
+import { Intro } from './Components/intro';
 import { Home } from './Components/homepage';
 import { useSwipeable } from 'react-swipeable';
 import { Ipage } from './Components/ipage';
@@ -9,7 +9,7 @@ import { Friends } from './Components/friendspage';
 
 
 const App = () => {
-  const pages = ['/i', '/', '/friends']; 
+  const pages = ['/', '/ipage', '/home', '/friends']; 
   const app = window.Telegram.WebApp;
   app.ready()
   app.isClosingConfirmationEnabled = true;
@@ -35,14 +35,15 @@ const App = () => {
   return(
     <>
     <header>
-      <Link className='buttom' onclick="return false" to="/i">08.08</Link>
-      <Link className='buttom' onclick="return false" to="/">Home</Link>
+      <Link className='buttom' onclick="return false" to="/ipage">08.08</Link>
+      <Link className='buttom' onclick="return false" to="/home">Home</Link>
       <Link className='buttom' onclick="return false" to="/friends">Friends</Link>
     </header>
     <div {...handlers}>
     <Routes>
-            <Route path="/" element={<Home/>} />
-            <Route path="/i" element={<Ipage />} />
+            <Route path="/" element={<Intro/>} />
+            <Route path="/home" element={<Home/>} />
+            <Route path="/ipage" element={<Ipage />} />
             <Route path="/friends" element={<Friends />} />
     </Routes>
     </div>

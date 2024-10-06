@@ -19,3 +19,10 @@
     -ms-user-select: none; 
     user-select: none;    
   } 
+  .block {
+    padding: 0 0 0;
+  }
+
+  .block2 {
+    padding: 70% 0 0;
+  }

@@ -1,20 +1,19 @@
 import './Home.css';
 import React from 'react';
-import ReactDOM from 'react-dom';
 import RotatingBall from './RotatingBall';
 
 
 const Home = () => (
   <>
-  <div>
+  
+  <div className='block'>
     <h1>Adeita</h1>
     <RotatingBall />
-
   </div>
-  
+  <div className='block2'></div>
 </>
 );
 
-ReactDOM.render(<Home />, document.getElementById('root'));
+
 
 export {Home};
