@@ -35,13 +35,13 @@ const App = () => {
     <>
     <header>
       <Link className='buttom' onclick="return false" to="/ipage">08.08</Link>
-      <Link className='buttom' onclick="return false" to="/home">Home</Link>
+      <Link className='buttom' onclick="return false" to="/">Home</Link>
       <Link className='buttom' onclick="return false" to="/friends">Friends</Link>
     </header>
     <div {...handlers}>
     <Routes>
-            <Route path="/" element={<Home/>} />
             <Route path="/ipage" element={<Ipage />} />
+            <Route path="/" element={<Home/>} />
             <Route path="/friends" element={<Friends />} />
     </Routes>
     </div>
