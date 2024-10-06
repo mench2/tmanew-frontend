@@ -8,7 +8,7 @@ import { Friends } from './Components/friendspage';
 
 
 const App = () => {
-  const pages = ['/', '/ipage', '/friends']; 
+  const pages = ['/ipage', '/', '/friends']; 
   const app = window.Telegram.WebApp;
   app.ready()
   app.isClosingConfirmationEnabled = true;
