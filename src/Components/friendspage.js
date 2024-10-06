@@ -16,6 +16,7 @@ const Friends = () => {
     
     return (
         <>
+        
         <div className='hello'><h2>Hello <span className={'username'}>{user?.first_name}</span> 👋 <br />invite friends</h2></div>
         <div className='spisok'></div>
         <FloatingButton onClick={() => {onClose(); copyTextToClipboard('https://t.me/AdeitaBot Присоединяйся ко мне!');}} />

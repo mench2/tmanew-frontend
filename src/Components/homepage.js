@@ -7,6 +7,8 @@ const Home = () => (
   <>
     <h1>Adeita</h1>
     <RotatingBall />
+    gfcfggffh
+    jbhbhbh
 </>
 );
 
