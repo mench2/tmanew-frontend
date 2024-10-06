@@ -1,5 +1,4 @@
 .App {
-    text-align: center;
     -webkit-touch-callout: none;
     -webkit-user-select: none;
     -khtml-user-select: none;
@@ -8,21 +7,11 @@
     user-select: none;
   }
   body {
-  color: azure;
-    text-align: center;
-    background-color: #000000;
-    background-size: cover;
-    background-position: center;
-    -webkit-user-select: none; 
-    -webkit-touch-callout: none; 
-    -moz-user-select: none; 
-    -ms-user-select: none; 
-    user-select: none;    
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none; 
+    padding: 0 0 30vh;
   } 
-  .block {
-    padding: 0 0 0;
-  }
-
-  .block2 {
-    padding: 70% 0 0;
-  }
