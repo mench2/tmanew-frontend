@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import './RotatingBall.css';
 
 const RotatingBall = () => {
@@ -15,7 +15,7 @@ const RotatingBall = () => {
   };
 
   // Обработчик начала перетаскивания
-  const handleStart = (e) => {
+  const handleStart = useCallback((e) => {
     setIsDragging(true);
     const rect = containerRef.current.getBoundingClientRect();
     const centerX = rect.width / 2;
@@ -33,10 +33,10 @@ const RotatingBall = () => {
     );
     setStartAngle(startAngle);
     lastAngleRef.current = angle;
-  };
+  }, [angle]);
 
   // Обработчик движения
-  const handleMove = (e) => {
+  const handleMove = useCallback((e) => {
     if (!isDragging) return;
 
     const rect = containerRef.current.getBoundingClientRect();
@@ -64,12 +64,12 @@ const RotatingBall = () => {
     }
     
     setAngle(newAngle);
-  };
+  }, [isDragging, angle, startAngle]);
 
   // Обработчик окончания перетаскивания
-  const handleEnd = () => {
+  const handleEnd = useCallback(() => {
     setIsDragging(false);
-  };
+  }, []);
 
   // Добавляем и удаляем обработчики событий
   useEffect(() => {
@@ -96,7 +96,7 @@ const RotatingBall = () => {
       window.removeEventListener('touchmove', handleMove);
       window.removeEventListener('touchend', handleEnd);
     };
-  }, [isDragging, angle, startAngle]);
+  }, [handleStart, handleMove, handleEnd]);
 
   return (
     <div className="container" ref={containerRef}>
