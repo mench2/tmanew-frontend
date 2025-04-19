@@ -31,7 +31,7 @@ export const useTheme = () => {
         ...newThemeParams
       });
     });
-  }, []);
+  }, [tg]);
 
   return theme;
 }; 
