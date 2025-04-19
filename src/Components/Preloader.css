@@ -1,0 +1,42 @@
+.preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.preloader__container {
+  display: flex;
+  gap: 20px;
+}
+
+.preloader__circle {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: linear-gradient(45deg, #ff6ec4, #7873f5);
+  animation: bounce 0.5s ease-in-out infinite;
+}
+
+.preloader__circle:nth-child(2) {
+  animation-delay: 0.1s;
+}
+
+.preloader__circle:nth-child(3) {
+  animation-delay: 0.2s;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+} 

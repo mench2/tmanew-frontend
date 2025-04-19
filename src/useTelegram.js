@@ -3,9 +3,6 @@ const tg = window.Telegram.WebApp;
 
 
 export function useTelegram() {
-
-    backgroundColor
-
     const onClose = () => {
         tg.close()
     }
@@ -15,8 +12,4 @@ export function useTelegram() {
         tg,
         user: tg.initDataUnsafe?.user,
     }
-
-
-
-
 }
