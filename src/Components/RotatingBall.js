@@ -15,33 +15,43 @@ const RotatingBall = () => {
   };
 
   // Обработчик начала перетаскивания
-  const handleMouseDown = (e) => {
+  const handleStart = (e) => {
     setIsDragging(true);
     const rect = containerRef.current.getBoundingClientRect();
     const centerX = rect.width / 2;
     const centerY = rect.height / 2;
+    
+    // Получаем координаты касания/клика
+    const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+    const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+    
     const startAngle = getAngle(
       centerX,
       centerY,
-      e.clientX - rect.left,
-      e.clientY - rect.top
+      clientX - rect.left,
+      clientY - rect.top
     );
     setStartAngle(startAngle);
     lastAngleRef.current = angle;
   };
 
   // Обработчик движения
-  const handleMouseMove = (e) => {
+  const handleMove = (e) => {
     if (!isDragging) return;
 
     const rect = containerRef.current.getBoundingClientRect();
     const centerX = rect.width / 2;
     const centerY = rect.height / 2;
+    
+    // Получаем координаты касания/движения мыши
+    const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+    const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+    
     const currentAngle = getAngle(
       centerX,
       centerY,
-      e.clientX - rect.left,
-      e.clientY - rect.top
+      clientX - rect.left,
+      clientY - rect.top
     );
 
     let newAngle = lastAngleRef.current + (currentAngle - startAngle);
@@ -57,19 +67,34 @@ const RotatingBall = () => {
   };
 
   // Обработчик окончания перетаскивания
-  const handleMouseUp = () => {
+  const handleEnd = () => {
     setIsDragging(false);
   };
 
   // Добавляем и удаляем обработчики событий
   useEffect(() => {
-    if (isDragging) {
-      window.addEventListener('mousemove', handleMouseMove);
-      window.addEventListener('mouseup', handleMouseUp);
-    }
+    const ball = containerRef.current.querySelector('.ball');
+    
+    // Добавляем обработчики для мыши
+    ball.addEventListener('mousedown', handleStart);
+    window.addEventListener('mousemove', handleMove);
+    window.addEventListener('mouseup', handleEnd);
+    
+    // Добавляем обработчики для тач-событий
+    ball.addEventListener('touchstart', handleStart);
+    window.addEventListener('touchmove', handleMove);
+    window.addEventListener('touchend', handleEnd);
+    
     return () => {
-      window.removeEventListener('mousemove', handleMouseMove);
-      window.removeEventListener('mouseup', handleMouseUp);
+      // Удаляем обработчики для мыши
+      ball.removeEventListener('mousedown', handleStart);
+      window.removeEventListener('mousemove', handleMove);
+      window.removeEventListener('mouseup', handleEnd);
+      
+      // Удаляем обработчики для тач-событий
+      ball.removeEventListener('touchstart', handleStart);
+      window.removeEventListener('touchmove', handleMove);
+      window.removeEventListener('touchend', handleEnd);
     };
   }, [isDragging, angle, startAngle]);
 
@@ -81,9 +106,7 @@ const RotatingBall = () => {
           className="ball"
           style={{
             transform: `rotate(${angle}deg) translateY(-100px)`,
-            cursor: isDragging ? 'grabbing' : 'grab'
           }}
-          onMouseDown={handleMouseDown}
         />
       </div>
     </div>

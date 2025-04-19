@@ -21,7 +21,6 @@
     border: 2px solid var(--tg-theme-text-color);
     border-radius: 50%;
     position: relative;
-    animation: rotate 2s linear infinite;
   }
   
   .ball {
@@ -35,38 +34,12 @@
     transform-origin: 0 0;
     transition: transform 0.1s ease-out;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-    animation: moveBall 4s linear infinite;
+    cursor: grab;
   }
   
   .ball:active {
+    cursor: grabbing;
     transform: scale(1.1);
-  }
-  
-  @keyframes rotate {
-    0% {
-      transform: rotate(0deg);
-    }
-    100% {
-      transform: rotate(360deg);
-    }
-  }
-  
-  @keyframes moveBall {
-    0% {
-      transform: translate(-50%, -100%) rotate(0deg);
-    }
-    25% {
-      transform: translate(-50%, -100%) rotate(90deg);
-    }
-    50% {
-      transform: translate(-50%, -100%) rotate(180deg);
-    }
-    75% {
-      transform: translate(-50%, -100%) rotate(270deg);
-    }
-    100% {
-      transform: translate(-50%, -100%) rotate(360deg);
-    }
   }
   
   .line {
