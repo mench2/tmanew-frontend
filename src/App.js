@@ -7,7 +7,6 @@ import { Friends } from './Components/friendspage';
 import Preloader from './Components/Preloader';
 import { useState, useEffect } from 'react';
 import { useTheme } from './hooks/useTheme';
-import RotatingBall from './Components/RotatingBall';
 import { getUserData } from './services/api';
 import { useTelegram } from './hooks/useTelegram';
 
@@ -100,7 +99,6 @@ const App = () => {
           <Route path="/friends" element={<Friends />} />
         </Routes>
       </div>
-      <RotatingBall userId={userId || 'guest'} />
     </>
   );
 }
