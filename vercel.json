@@ -28,6 +28,6 @@
     }
   ],
   "env": {
-    "REACT_APP_API_URL": "http://localhost:3001/api"
+    "REACT_APP_API_URL": "https://tmanew-backend-production.up.railway.app/api"
   }
 } 
