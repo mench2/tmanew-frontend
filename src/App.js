@@ -7,6 +7,8 @@ import { Friends } from './Components/friendspage';
 import Preloader from './Components/Preloader';
 import { useState, useEffect } from 'react';
 import { useTheme } from './hooks/useTheme';
+import RotatingBall from './Components/RotatingBall';
+import { getUserData } from './services/api';
 
 const App = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -23,6 +25,7 @@ const App = () => {
   app.isVerticalSwipesEnabled = false;
   
   const navigate = useNavigate();
+  const [userId, setUserId] = useState('user123'); // В реальном приложении это должно быть динамическим
 
   useEffect(() => {
     // Имитация загрузки данных
@@ -47,6 +50,18 @@ const App = () => {
       document.documentElement.style.setProperty('--tg-theme-accent-text-color', theme.accent_text_color);
     }
   }, [theme]);
+
+  useEffect(() => {
+    const loadUserData = async () => {
+      const userData = await getUserData(userId);
+      if (userData) {
+        // Здесь можно обновить состояние компонента на основе полученных данных
+        console.log('User data loaded:', userData);
+      }
+    };
+
+    loadUserData();
+  }, [userId]);
 
   const handlers = useSwipeable({
     onSwipedLeft: () => swipePage(1),
@@ -82,6 +97,7 @@ const App = () => {
           <Route path="/friends" element={<Friends />} />
         </Routes>
       </div>
+      <RotatingBall userId={userId} />
     </>
   );
 }

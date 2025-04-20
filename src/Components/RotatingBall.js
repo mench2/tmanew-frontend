@@ -1,11 +1,13 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import './RotatingBall.css';
+import { saveUserData } from '../services/api';
 
-const RotatingBall = () => {
+const RotatingBall = ({ userId }) => {
   const [angle, setAngle] = useState(0);
   const [circles, setCircles] = useState(0);
   const [isDragging, setIsDragging] = useState(false);
   const [startAngle, setStartAngle] = useState(0);
+  const [rounds, setRounds] = useState(0);
   const containerRef = useRef(null);
   const lastAngleRef = useRef(0);
 
@@ -97,6 +99,13 @@ const RotatingBall = () => {
       window.removeEventListener('touchend', handleEnd);
     };
   }, [handleStart, handleMove, handleEnd]);
+
+  // Сохраняем данные при изменении раундов
+  useEffect(() => {
+    if (userId) {
+      saveUserData(userId, { rounds });
+    }
+  }, [rounds, userId]);
 
   return (
     <div className="container" ref={containerRef}>
