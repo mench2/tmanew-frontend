@@ -25,7 +25,7 @@ const App = () => {
   app.isVerticalSwipesEnabled = false;
   
   const navigate = useNavigate();
-  const [userId, setUserId] = useState('user123'); // В реальном приложении это должно быть динамическим
+  const [userId] = useState('user123'); // Убираем setUserId, так как он не используется
 
   useEffect(() => {
     // Имитация загрузки данных

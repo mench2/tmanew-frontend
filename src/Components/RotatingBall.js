@@ -11,6 +11,11 @@ const RotatingBall = ({ userId }) => {
   const containerRef = useRef(null);
   const lastAngleRef = useRef(0);
 
+  // Обновляем rounds при изменении circles
+  useEffect(() => {
+    setRounds(circles);
+  }, [circles]);
+
   // Функция для определения угла между точками
   const getAngle = (x1, y1, x2, y2) => {
     return Math.atan2(y2 - y1, x2 - x1) * (180 / Math.PI);
