@@ -1,5 +1,5 @@
 // Базовый URL API
-const API_URL = 'http://your-server-ip:3001/api';
+const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:3001/api';
 
 // Получение данных пользователя
 export const getUserData = async (userId) => {
