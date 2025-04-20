@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import './RotatingBall.css';
-import { saveUserData } from '../services/api';
+import { saveUserData, getUserData } from '../services/api';
 
 const RotatingBall = ({ userId }) => {
   const [angle, setAngle] = useState(0);
@@ -10,6 +10,23 @@ const RotatingBall = ({ userId }) => {
   const [rounds, setRounds] = useState(0);
   const containerRef = useRef(null);
   const lastAngleRef = useRef(0);
+
+  // Загружаем начальные данные
+  useEffect(() => {
+    const loadInitialData = async () => {
+      if (userId) {
+        console.log('Загрузка данных для пользователя:', userId);
+        const data = await getUserData(userId);
+        if (data && data.rounds !== undefined) {
+          console.log('Загруженные данные:', data);
+          setCircles(data.rounds);
+          setRounds(data.rounds);
+        }
+      }
+    };
+
+    loadInitialData();
+  }, [userId]);
 
   // Обновляем rounds при изменении circles
   useEffect(() => {
@@ -107,9 +124,15 @@ const RotatingBall = ({ userId }) => {
 
   // Сохраняем данные при изменении раундов
   useEffect(() => {
-    if (userId) {
-      saveUserData(userId, { rounds });
-    }
+    const saveData = async () => {
+      if (userId) {
+        console.log('Сохранение данных:', { userId, rounds });
+        const result = await saveUserData(userId, { rounds });
+        console.log('Результат сохранения:', result);
+      }
+    };
+
+    saveData();
   }, [rounds, userId]);
 
   return (
