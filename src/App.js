@@ -9,12 +9,14 @@ import { useState, useEffect } from 'react';
 import { useTheme } from './hooks/useTheme';
 import RotatingBall from './Components/RotatingBall';
 import { getUserData } from './services/api';
+import { useTelegram } from './hooks/useTelegram';
 
 const App = () => {
   const [isLoading, setIsLoading] = useState(true);
   const theme = useTheme();
   const pages = ['/ipage', '/', '/friends']; 
   const app = window.Telegram.WebApp;
+  const { userId } = useTelegram();
   
   // Настройка Telegram WebApp
   app.ready();
@@ -25,7 +27,6 @@ const App = () => {
   app.isVerticalSwipesEnabled = false;
   
   const navigate = useNavigate();
-  const [userId] = useState('user123'); // Убираем setUserId, так как он не используется
 
   useEffect(() => {
     // Имитация загрузки данных
@@ -53,10 +54,12 @@ const App = () => {
 
   useEffect(() => {
     const loadUserData = async () => {
-      const userData = await getUserData(userId);
-      if (userData) {
-        // Здесь можно обновить состояние компонента на основе полученных данных
-        console.log('User data loaded:', userData);
+      if (userId) {
+        console.log('Загрузка данных для пользователя:', userId);
+        const userData = await getUserData(userId);
+        if (userData) {
+          console.log('Загруженные данные:', userData);
+        }
       }
     };
 
@@ -97,7 +100,7 @@ const App = () => {
           <Route path="/friends" element={<Friends />} />
         </Routes>
       </div>
-      <RotatingBall userId={userId} />
+      <RotatingBall userId={userId || 'guest'} />
     </>
   );
 }
