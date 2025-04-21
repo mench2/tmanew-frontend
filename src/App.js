@@ -9,6 +9,7 @@ import { useState, useEffect } from 'react';
 import { useTheme } from './hooks/useTheme';
 import { getUserData } from './services/api';
 import { useTelegram } from './hooks/useTelegram';
+import { mountViewport } from '@twa-dev/sdk';
 
 const App = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -64,6 +65,13 @@ const App = () => {
 
     loadUserData();
   }, [userId]);
+
+  useEffect(() => {
+    if (mountViewport.isAvailable()) {
+      mountViewport();
+      requestFullscreen.ifAvailable();
+    }
+  }, []);
 
   const handlers = useSwipeable({
     onSwipedLeft: () => swipePage(1),
