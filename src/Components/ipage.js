@@ -7,13 +7,13 @@ const products = [
     {
       id: 1,
       name: 'Product 1',
-      price: '$10',
+      price: '$1000',
       image: 'https://via.placeholder.com/150',
     },
     {
       id: 2,
       name: 'Product 2',
-      price: '$20',
+      price: '$1000',
       image: 'https://via.placeholder.com/150',
     },
     {
