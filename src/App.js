@@ -9,13 +9,21 @@ import { useState, useEffect } from 'react';
 import { useTheme } from './hooks/useTheme';
 import { getUserData } from './services/api';
 import { useTelegram } from './hooks/useTelegram';
-import WebApp from '@twa-dev/sdk';
 
 const App = () => {
   const [isLoading, setIsLoading] = useState(true);
   const theme = useTheme();
   const pages = ['/ipage', '/', '/friends']; 
+  const app = window.Telegram.WebApp;
   const { userId } = useTelegram();
+  
+  // Настройка Telegram WebApp
+  app.ready();
+  app.expand(); // Расширяем на весь экран
+  app.setHeaderColor('#000000'); // Устанавливаем черный цвет для верхнего меню
+  app.setBackgroundColor('#000000'); // Устанавливаем черный цвет фона
+  app.isClosingConfirmationEnabled = true;
+  app.isVerticalSwipesEnabled = false;
   
   const navigate = useNavigate();
 
@@ -56,14 +64,6 @@ const App = () => {
 
     loadUserData();
   }, [userId]);
-
-  useEffect(() => {
-    WebApp.ready();
-    WebApp.expand();
-    if (WebApp.isVersionAtLeast('6.1')) {
-      WebApp.requestViewport();
-    }
-  }, []);
 
   const handlers = useSwipeable({
     onSwipedLeft: () => swipePage(1),
